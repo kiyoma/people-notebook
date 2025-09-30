@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>人メモ帳 (Local)</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>人メモ帳 (ローカル)</h1>
+      <p class="muted">IndexedDB に保存。顔登録なし。オフライン対応（ブラウザ内のみ）。</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>① 追加フォーム</h2>
+        <form id="add-form">
+          <div class="grid">
+            <label>
+              名前（必須）
+              <input id="name" name="name" required placeholder="氏名" />
+            </label>
+            <label>
+              どこで会った
+              <input id="whereMet" name="whereMet" placeholder="例: 勉強会" />
+            </label>
+            <label>
+              いつ会った
+              <input id="whenMet" name="whenMet" type="date" />
+            </label>
+            <label class="wide">
+              メモ
+              <textarea id="notes" name="notes" rows="2" placeholder="印象や話した内容など"></textarea>
+            </label>
+            <label class="wide">
+              タグ（カンマ区切り）
+              <input id="tags" name="tags" placeholder="例: エンジニア, React" />
+            </label>
+          </div>
+          <div class="actions">
+            <button type="submit" class="primary">追加</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>② 検索</h2>
+        <input id="search" placeholder="名前・メモ・どこ・タグを検索" />
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2>③ 結果</h2>
+          <div class="spacer"></div>
+          <button id="exportBtn">エクスポート</button>
+          <button id="importBtn">インポート</button>
+          <input id="fileInput" type="file" accept="application/json,.json" hidden />
+        </div>
+        <div id="results" class="list"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+  </html>
+
